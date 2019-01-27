@@ -18,6 +18,8 @@ inoremap {<Enter> {<Enter>}<Esc>O
 :nmap <c-h> <c-w>h
 :nmap <F3> Gvgg:pyf ~/.vim/clang-format.py<CR>
 :imap <F3> <Esc>Gvgg:pyf ~/.vim/clang-format.py<CR>i
+:nmap > >>
+:nmap < <<
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_custom_ignore = '*.o'
