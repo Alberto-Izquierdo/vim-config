@@ -24,6 +24,7 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_custom_ignore = '*.o'
 let g:ctrlp_custom_ignore = '*.obj'
+set relativenumber
 " para cerrar llaves html
 inoremap </ </<C-X><C-O>
 
