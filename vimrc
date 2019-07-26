@@ -15,10 +15,10 @@ set rnu
 :nmap <c-k> <c-w>k
 :nmap <c-l> <c-w>l
 :nmap <c-h> <c-w>h
-:autocmd FileType cpp nmap <F3> Gvgg:pyf ~/.vim/clang-format.py<CR>
-:autocmd FileType cpp imap <F3> <Esc>Gvgg:pyf ~/.vim/clang-format.py<CR>i
-:autocmd FileType json nmap <F3> :%!python -m json.tool<CR>
-:autocmd FileType json imap <F3> <Esc>:%!python -m json.tool<CR>i
+:autocmd FileType cpp nmap <F3> Gvgg:py3f ~/.vim/clang-format.py<CR>
+:autocmd FileType cpp imap <F3> <Esc>Gvgg:py3f ~/.vim/clang-format.py<CR>i
+:autocmd FileType json nmap <F3> :call FormatJsonOnSave()<CR>
+:autocmd FileType json imap <F3> <Esc>:call FormatJsonOnSave()<CR>i
 :nmap <F2> <C-P><C-\>w
 :nmap > >>
 :nmap < <<
@@ -38,7 +38,7 @@ let g:ctrlp_custom_ignore = '*.obj'
 let g:ctrlp_clear_cache_on_exit = 0
 
 function! FormatJsonOnSave()
-  %!python -m json.tool
+  %!python3 -m json.tool
 endfunction
 function! FormatCppOnSave()
   let l:formatdiff = 1
