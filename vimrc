@@ -19,6 +19,8 @@ set rnu
 :autocmd FileType cpp imap <F3> <Esc>Gvgg:py3f ~/.vim/clang-format.py<CR>i
 :autocmd FileType json nmap <F3> :call FormatJsonOnSave()<CR>
 :autocmd FileType json imap <F3> <Esc>:call FormatJsonOnSave()<CR>i
+:autocmd FileType rust nmap <F3> :RustFmt<CR>
+:autocmd FileType rust imap <F3> <Esc>:RustFmt<CR>i
 :nmap <F2> <C-P><C-\>w
 :nmap > >>
 :nmap < <<
@@ -36,6 +38,7 @@ let g:ctrlp_max_depth=40
 let g:ctrlp_custom_ignore = '*.o'
 let g:ctrlp_custom_ignore = '*.obj'
 let g:ctrlp_clear_cache_on_exit = 0
+let g:rustfmt_autosave = 1
 
 function! FormatJsonOnSave()
   %!python3 -m json.tool
