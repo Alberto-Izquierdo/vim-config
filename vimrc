@@ -38,6 +38,11 @@ let g:ctrlp_max_depth=40
 let g:ctrlp_custom_ignore = '*.o'
 let g:ctrlp_custom_ignore = '*.obj'
 let g:ctrlp_clear_cache_on_exit = 0
+
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 let g:rustfmt_autosave = 1
 
 function! FormatJsonOnSave()
