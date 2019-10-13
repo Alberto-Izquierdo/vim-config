@@ -21,6 +21,8 @@ set rnu
 :autocmd FileType json imap <F3> <Esc>:call FormatJsonOnSave()<CR>i
 :autocmd FileType rust nmap <F3> :RustFmt<CR>
 :autocmd FileType rust imap <F3> <Esc>:RustFmt<CR>i
+:autocmd FileType go nmap <F3> :GoImports<CR>
+:autocmd FileType go imap <F3> <Esc>:GoImports<CR>i
 :nmap <F2> <C-P><C-\>w
 :nmap > >>
 :nmap < <<
@@ -44,6 +46,8 @@ if executable('ag')
 endif
 
 let g:rustfmt_autosave = 1
+
+let g:go_fmt_command = "goimports"
 
 function! FormatJsonOnSave()
   %!python3 -m json.tool
