@@ -15,8 +15,8 @@ set rnu
 :nmap <c-k> <c-w>k
 :nmap <c-l> <c-w>l
 :nmap <c-h> <c-w>h
-:autocmd FileType cpp nmap <F3> Gvgg:py3f ~/.vim/clang-format.py<CR>
-:autocmd FileType cpp imap <F3> <Esc>Gvgg:py3f ~/.vim/clang-format.py<CR>i
+:autocmd FileType cpp nmap <F3> :%py3f ~/.vim/clang-format.py<CR>
+:autocmd FileType cpp imap <F3> <Esc>:%py3f ~/.vim/clang-format.py<CR>i
 :autocmd FileType json nmap <F3> :call FormatJsonOnSave()<CR>
 :autocmd FileType json imap <F3> <Esc>:call FormatJsonOnSave()<CR>i
 :autocmd FileType rust nmap <F3> :RustFmt<CR>
@@ -54,7 +54,7 @@ function! FormatJsonOnSave()
 endfunction
 function! FormatCppOnSave()
   let l:formatdiff = 1
-  py3f ~/.vim/clang-format.py
+  %py3f ~/.vim/clang-format.py
 endfunction
 
 autocmd BufWritePre *.h,*.cc,*.cpp call FormatCppOnSave()
