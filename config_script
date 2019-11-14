@@ -2,13 +2,15 @@
 pwd=$(pwd)
 # Install dependencies
 sudo apt-get install curl git vim clang-format silversearcher-ag
+mkdir ~/.vim
 # Copy vimrc
 cp vimrc ~/.vimrc
-mkdir ~/.vim
 cp clang-format.py ~/.vim/
 # Clone pathogen
-mkdir ~/.vim/autoload -p
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+cd ~/.vim
+git clone https://github.com/tpope/vim-pathogen.git
+cp -r vim-pathogen/autoload ~/.vim
+sudo rm -r vim-pathogen
 # Install color
 mkdir ~/.vim/colors
 cd ~/.vim/colors
@@ -29,6 +31,7 @@ git clone https://github.com/Alberto-Izquierdo/vim-snippets
 git clone https://github.com/rust-lang/rust.vim.git
 git clone https://github.com/rust-lang/rust.vim.git
 git clone https://github.com/fatih/vim-go.git
+git clone https://github.com/tpope/vim-fugitive.git
 if ! grep -q 'stty -ixon' ~/.bashrc
 then
     echo 'stty -ixon' >> ~/.bashrc
