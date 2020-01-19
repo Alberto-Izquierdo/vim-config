@@ -47,9 +47,14 @@ sudo rm -r vim-pathogen
 cd ~/.vim/colors
 git clone https://github.com/morhetz/gruvbox
 cp gruvbox/colors/* .
+# Configure .bashrc to work with colors if necessary
 if ! grep -q 'stty -ixon' ~/.bashrc
 then
     echo 'stty -ixon' >> ~/.bashrc
+fi
+if ! grep -q 'export TERM=xterm-256color' ~/.bashrc
+then
+    echo 'export TERM=xterm-256color' >> ~/.bashrc
 fi
 unset -f _processInput
 unset -v answer_y_n
