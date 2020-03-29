@@ -30,6 +30,7 @@ inoremap {<Enter> {<Enter>}<Esc>O
 inoremap </ </<C-X><C-O>
 " Open the header/cpp of the current file
 :autocmd FileType cpp nnoremap <expr> <F4> (expand('%:e')=="h") ? '<Esc>:e %:r.cpp<Enter>' : '<Esc>:e %:r.h<Enter>'
+:autocmd FileType c nnoremap <expr> <F4> (expand('%:e')=="h") ? '<Esc>:e %:r.c<Enter>' : '<Esc>:e %:r.h<Enter>'
 set fileformats=dos
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -58,5 +59,5 @@ function! FormatCppOnSave()
 endfunction
 
 autocmd BufWritePre *.h,*.cc,*.cpp call FormatCppOnSave()
-autocmd BufWritePre *.json call FormatJsonOnSave()
+"autocmd BufWritePre *.json call FormatJsonOnSave()
 execute pathogen#infect()
